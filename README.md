@@ -37,5 +37,7 @@
 <img width="1001" alt="Снимок экрана 2022-11-16 в 18 56 59" src="https://user-images.githubusercontent.com/106274596/202230279-f693c712-86d6-481f-bc8e-eb637fefef12.png">
 <img width="998" alt="Снимок экрана 2022-11-16 в 18 57 09" src="https://user-images.githubusercontent.com/106274596/202230296-126560ba-156e-4699-a65b-d24dc37c17a8.png">
 
-Тестирование API в Postman: 
+<b>Тестирование API в Postman: </b>
+
+https://www.postman.com/security-cosmonaut-14770752/workspace/personal-ivents
 
