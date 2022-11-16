@@ -45,16 +45,41 @@ https://www.postman.com/security-cosmonaut-14770752/workspace/personal-ivents
 
 <b>Регрессионное тестирование:</b>
 
+Чек-лист в Sitechko:
+<img width="1014" alt="Снимок экрана 2022-11-16 в 19 50 11" src="https://user-images.githubusercontent.com/106274596/202242948-27aa5089-ac22-4528-be33-6b615ddaa1dd.png">
+<img width="1022" alt="Снимок экрана 2022-11-16 в 19 50 17" src="https://user-images.githubusercontent.com/106274596/202242957-bf53927e-afee-4643-8481-c91939c56862.png">
+
 <h3> 4. Результаты тестирования: </h3>
 
 Отчет по Smoke-test: https://app.qase.io/public/report/8754e4c7d9fbd085e5f42d729b1539c867c42c0f
 
-Тестирование по чек-листу:
+API-тестирование пройдено успешно: 
+
+![85c0d18a-d7bd-4b5b-86c8-7e3e6ee6a259](https://user-images.githubusercontent.com/106274596/202244303-00487986-589a-488e-8ea2-030041c98efa.png)
+
+Функциональное тестирование по чек-листу:
 
 ![b36384d2-ca7f-452a-9361-b0f3ae2cac89](https://user-images.githubusercontent.com/106274596/202241446-326a18d6-4e90-4465-8799-1f84d40824f1.png)
 
-Баг-репорт в Jira: 
-<img width="1143" alt="Снимок экрана 2022-11-16 в 19 48 30" src="https://user-images.githubusercontent.com/106274596/202242414-c9341b72-344e-4c7e-ae5a-f84136a3b846.png">
+Регрессионое тестирование:
 
+<img width="1015" alt="Снимок экрана 2022-11-16 в 19 52 47" src="https://user-images.githubusercontent.com/106274596/202243577-1f007647-968d-4c29-8ea3-17104bb7738d.png">
+<img width="995" alt="Снимок экрана 2022-11-16 в 19 52 57" src="https://user-images.githubusercontent.com/106274596/202243587-045647de-2bab-4b6d-ad83-41587dfebbd2.png">
+<img width="1009" alt="Снимок экрана 2022-11-16 в 19 53 12" src="https://user-images.githubusercontent.com/106274596/202243600-48845ba0-80b2-4dcd-803e-c60f2f8b114a.png">
+
+Баг-репорты в Jira: 
+
+<img width="1143" alt="Снимок экрана 2022-11-16 в 19 48 30" src="https://user-images.githubusercontent.com/106274596/202242414-c9341b72-344e-4c7e-ae5a-f84136a3b846.png">
+<img width="1131" alt="Снимок экрана 2022-11-16 в 19 55 01" src="https://user-images.githubusercontent.com/106274596/202243976-c0858b21-0259-4a27-828f-5b8d175bd2ff.png">
+
+<h3>Отчет о тестировании итогового проекта</h3>
+
+<ol>
+ <li>По результатам API-тестирования багов не найдено</>
+ <li>При функциональном тестировании найден один баг с серьезностью Minor</li>
+ <li>При регрессионном тестировании найден баг с серьезностью High</li>
+<ol>
+  
+  По результатам регрессионного тестирования выявлена поломка в системе. Теперь учителю невозможно отменить урок. До починки этого бага новый функционал выпускать не рекомендуется!
 
 
