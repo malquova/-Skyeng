@@ -1,0 +1,1229 @@
+{
+	"info": {
+		"_postman_id": "5547fa4f-1003-4ee0-8591-3d9edd2cc634",
+		"name": "Личные события (Кабинет преподавателя)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23807063"
+	},
+	"item": [
+		{
+			"name": "Get schedule",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from\": \"2022-10-17T00:00:00+03:00\",\n    \"till\": \"2022-10-24T00:00:00+03:00\",\n    \"onlyTypes\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/events",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create valid event tomorrow (cyrillic)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"EventId\"",
+							"var value = pm.response.json().data.payload.id",
+							"",
+							"pm.collectionVariables.set(key,value);",
+							"",
+							"var key = \"LastStartAt\"",
+							"var value = pm.response.json().data.startAt",
+							"",
+							"pm.collectionVariables.set(key,value);",
+							"",
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"\",\n    \"title\": \"ТестМалькова\",\n    \"startAt\": \"2022-10-19T02:20:00+03:00\",\n    \"endAt\": \"2022-10-19T03:20:00+03:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/createPersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update only name of the event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"EventId\"",
+							"var value = pm.response.json().data.payload.id",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"var key = \"LastStartAt\"",
+							"var value = pm.response.json().data.startAt",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"\",\n    \"title\": \"Тест222Малькова\",\n    \"startAt\": \"2022-10-19T02:20:00+03:00\",\n    \"endAt\": \"2022-10-19T03:20:00+03:00\",\n    \"id\": {{EventId}},\n    \"oldStartAt\": \"{{LastStartAt}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/updatePersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"updatePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create valid event next year min time (latin)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"EventId\"",
+							"var value = pm.response.json().data.payload.id",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"var key = \"LastStartAt\"",
+							"var value = pm.response.json().data.startAt",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"\",\n    \"title\": \"TestMalkova\",\n    \"startAt\": \"2023-03-19T02:20:00+03:00\",\n    \"endAt\": \"2023-03-19T02:30:00+03:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api-teachers.skyeng.ru/v2/schedule/createPersonal",
+					"protocol": "https",
+					"host": [
+						"api-teachers",
+						"skyeng",
+						"ru"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update date from future to past",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"EventId\"",
+							"var value = pm.response.json().data.payload.id",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"var key = \"LastStartAt\"",
+							"var value = pm.response.json().data.startAt",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"\",\n    \"title\": \"TestMalkova\",\n    \"startAt\": \"2022-10-17T00:00:00+03:00\",\n    \"endAt\": \"2022-10-17T23:50:00+03:00\",\n    \"id\": {{EventId}},\n    \"oldStartAt\": \"{{LastStartAt}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/updatePersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"updatePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update date from past to future",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"EventId\"",
+							"var value = pm.response.json().data.payload.id",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"var key = \"LastStartAt\"",
+							"var value = pm.response.json().data.startAt",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"\",\n    \"title\": \"TestMalkova\",\n    \"startAt\": \"2022-10-22T00:00:00+03:00\",\n    \"endAt\": \"2022-10-22T23:50:00+03:00\",\n    \"id\": {{EventId}},\n    \"oldStartAt\": \"{{LastStartAt}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/updatePersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"updatePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update colour of the event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"EventId\"",
+							"var value = pm.response.json().data.payload.id",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"var key = \"LastStartAt\"",
+							"var value = pm.response.json().data.startAt",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#00FFFF\",\n    \"color\": \"#FAC641\",\n    \"description\": \"\",\n    \"title\": \"TestMalkova\",\n    \"startAt\": \"2022-10-22T00:00:00+03:00\",\n    \"endAt\": \"2022-10-22T23:50:00+03:00\",\n    \"id\": {{EventId}},\n    \"oldStartAt\": \"{{LastStartAt}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/updatePersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"updatePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create valid event next month (with special charachters)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"EventId\"",
+							"var value = pm.response.json().data.payload.id",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"var key = \"LastStartAt\"",
+							"var value = pm.response.json().data.startAt",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"\",\n    \"title\": \"Тест+Малькова\",\n    \"startAt\": \"2022-11-19T00:00:00+03:00\",\n    \"endAt\": \"2022-11-19T23:50:00+03:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/createPersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update only description of the event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"EventId\"",
+							"var value = pm.response.json().data.payload.id",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"var key = \"LastStartAt\"",
+							"var value = pm.response.json().data.startAt",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"Тест изменен\",\n    \"title\": \"Тест+Малькова\",\n    \"startAt\": \"2022-11-19T00:00:00+03:00\",\n    \"endAt\": \"2022-11-19T23:50:00+03:00\",\n    \"id\": {{EventId}},\n    \"oldStartAt\": \"{{LastStartAt}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/updatePersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"updatePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove event from the future",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": {{EventId}},\n    \"startAt\": \"{{LastStartAt}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/removePersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"removePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create valid event last month (with spaces)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"EventId\"",
+							"var value = pm.response.json().data.payload.id",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"var key = \"LastStartAt\"",
+							"var value = pm.response.json().data.startAt",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"",
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"(Описание+Тест)\",\n    \"title\": \"Тест Малькова\",\n    \"startAt\": \"2022-09-19T02:00:00+03:00\",\n    \"endAt\": \"2022-09-19T04:00:00+03:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/createPersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create valid event yesterday (with numbers in the name and link in description)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"EventId\"",
+							"var value = pm.response.json().data.payload.id",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"var key = \"LastStartAt\"",
+							"var value = pm.response.json().data.startAt",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"Ссылка https://en.wikipedia.org/wiki/Hannah_Arendt\",\n    \"title\": \"Тест123Малькова\",\n    \"startAt\": \"2022-10-20T02:00:00+03:00\",\n    \"endAt\": \"2022-10-20T04:00:00+03:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/createPersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove event from the past",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": {{EventId}},\n    \"startAt\": \"{{LastStartAt}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/removePersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"removePersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create valid event today (with name 40smbl and description 500smbls)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"EventId\"",
+							"var value = pm.response.json().data.payload.id",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"var key = \"LastStartAt\"",
+							"var value = pm.response.json().data.startAt",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"Есть над чем задуматься: действия представителей оппозиции представлены в исключительно положительном свете. Картельные сговоры не допускают ситуации, при которой независимые государства могут быть призваны к ответу. С учётом сложившейся международной обстановки, высокое качество позиционных исследований играет определяющее значение для своевременного выполнения сверхзадачи. Каждый из нас понимает очевидную вещь: начало повседневной работы по формированию позиции играет определяющее значение для\",\n    \"title\": \"Вот вам яркий пример современных тенденц\",\n    \"startAt\": \"2022-10-18T02:00:00+03:00\",\n    \"endAt\": \"2022-10-18T06:00:00+03:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/createPersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create valid event that fits the timeline with another",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"EventId\"",
+							"var value = pm.response.json().data.payload.id",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"var key = \"LastStartAt\"",
+							"var value = pm.response.json().data.startAt",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"\",\n    \"title\": \"ТестМалькова\",\n    \"startAt\": \"{{LastStartAt}}\",\n    \"endAt\": \"2022-10-18T18:00:00+03:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/createPersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create valid event that fits the timeline with lesson",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var key = \"EventId\"",
+							"var value = pm.response.json().data.payload.id",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"var key = \"LastStartAt\"",
+							"var value = pm.response.json().data.startAt",
+							"",
+							"pm.collectionVariables.set(key,value)",
+							"",
+							"pm.test(\"No Error: Success\", function () {",
+							"    var jsonError = pm.response.errors;",
+							"    pm.expect(jsonError == null) })"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"\",\n    \"title\": \"ТестМалькова\",\n    \"startAt\": \"2022-10-21T01:00:00+03:00\",\n    \"endAt\": \"2022-10-21T01:50:00+03:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/createPersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create invalid event with empty name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Error: Success\", function () {",
+							"    var jsonError = pm.response.json().errors;",
+							"    pm.expect(jsonError.value) != null})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"\",\n    \"title\": \"\",\n    \"startAt\": \"2022-10-21T02:00:00+03:00\",\n    \"endAt\": \"2022-10-21T02:50:00+03:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/createPersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create invalid event with name 41 symbols",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Error: Success\", function () {",
+							"    var jsonError = pm.response.json().errors;",
+							"    pm.expect(jsonError.value) != null})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"\",\n    \"title\": \"Вот вам яркий пример современных тенденци\",\n    \"startAt\": \"2022-10-21T02:00:00+03:00\",\n    \"endAt\": \"2022-10-21T02:50:00+03:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/createPersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create invalid event with description 501 symbols",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Error: Success\", function () {",
+							"    var jsonError = pm.response.json().errors;",
+							"    pm.expect(jsonError.value) != null})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"Есть над чем задуматься: действия представителей оппозиции представлены в исключительно положительном свете. Картельные сговоры не допускают ситуации, при которой независимые государства могут быть призваны к ответу. С учётом сложившейся международной обстановки, высокое качество позиционных исследований играет определяющее значение для своевременного выполнения сверхзадачи. Каждый из нас понимает очевидную вещь: начало повседневной работы по формированию позиции играет определяющее значение дляБ\",\n    \"title\": \"тестМалькова\",\n    \"startAt\": \"2022-10-21T02:00:00+03:00\",\n    \"endAt\": \"2022-10-21T02:50:00+03:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/createPersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create invalid event with empty date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Error: Success\", function () {",
+							"    var jsonError = pm.response.json().errors;",
+							"    pm.expect(jsonError.value) != null})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"\",\n    \"title\": \"тестМалькова\",\n    \"startAt\": \"\",\n    \"endAt\": \"2022-10-21T02:50:00+03:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/createPersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create invalid event with incorrect date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Error: Success\", function () {",
+							"    var jsonError = pm.response.json().errors;",
+							"    pm.expect(jsonError.value) != null})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"backgroundColor\": \"#FFF7C7\",\n    \"color\": \"#FAC641\",\n    \"description\": \"\",\n    \"title\": \"тестМалькова\",\n    \"startAt\": \"2022-11-21T02:00:00+03:00\",\n    \"endAt\": \"2022-10-21T02:50:00+03:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/createPersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"createPersonal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove non-existent event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Error: Success\", function () {",
+							"    var jsonError = pm.response.json().errors;",
+							"    pm.expect(jsonError.value) != null})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "{{MyToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 123456789,\n    \"startAt\": \"{{LastStartAt}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/v2/schedule/removePersonal",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"v2",
+						"schedule",
+						"removePersonal"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "MyToken",
+			"value": "_ga_SR964WVJCV=GS1.1.1666094549.2.1.1666094903.0.0.0; amplitude_id_ef9dd375ed875487462b31c2bbac3d1fskyeng.ru=eyJkZXZpY2VJZCI6IjNkNDU0NzM3LTcxMmYtNDhiZi05ZDIwLTZiMGE5YTRiNDk1N1IiLCJ1c2VySWQiOiIxMDMzODczNiIsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY2NjA5NDU1MDgwMSwibGFzdEV2ZW50VGltZSI6MTY2NjA5NDkwMzQzMCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; _ga=GA1.1.688033734.1666092609; _ym_visorc=b; session_teachers_cabinet=r4qru76bm55v0utjber20f4g2e; token_global=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VySWQiOjEwMzM4NzM2LCJpZGVudGl0eSI6InRlc3QtbW9iaWxlMUBza3llbmcucnUiLCJpZGVudGl0eUxvZ2luIjpudWxsLCJpZGVudGl0eUVtYWlsIjoidGVzdC1tb2JpbGUxQHNreWVuZy5ydSIsImlkZW50aXR5UGhvbmUiOiIrNzkxMjI1MjUyNTIiLCJuYW1lIjoiUmFkMTIiLCJzdXJuYW1lIjoiXHUwNDE4XHUwNDMyXHUwNDMwXHUwNDNkXHUwNDNlXHUwNDMyIiwiZW1haWwiOiJ0ZXN0LW1vYmlsZTFAc2t5ZW5nLnJ1IiwidWlMYW5ndWFnZSI6InJ1IiwibG9jYWxlIjoicnUiLCJzZXJ2aWNlTG9jYWxlIjpudWxsLCJ1YXMiOjMwLCJqd3RUeXBlIjoxLCJqdGkiOiJDbERGbHZuamNuVEcyY1FJZ2s3eFNKVFhoc3ZFWmQwMCIsImJyYW5kIjpudWxsLCJleHAiOjE2NjYxNzkwMTgsImF2YXRhclVybCI6Imh0dHBzOlwvXC9hdXRoLWF2YXRhcnMtc2t5ZW5nLmltZ2l4Lm5ldFwvMTAzMzg3MzZcL2E0ZjVmMDI3LTcyMTQtNDk3Ni05OWJiLTBmNzQzNmI3MjU0ZD9hdXRvPWZvcm1hdCUyQ2VuaGFuY2UmZml0PWNyb3AmaD0yMDAmaXhsaWI9cGhwLTIuMS4xJnE9NzUmc2F0PTgmc2hhcnA9MTAmdmliPTgmdz0yMDAiLCJiaXJ0aGRheSI6IjE5NzEtMDMtMDUiLCJhSXNTdHJvbmciOnRydWUsImFUeXBlIjoiVVNFUk5BTUVfUEFTU1dPUkQiLCJhVGltZSI6MTY2NjA5MjYxNiwicm9sZXMiOlsiUk9MRV9URUFDSEVSIiwiUk9MRV9DUk0yX1RFQUNIRVJfQUNDRVNTIiwiUk9MRV9UVENfVVNBR0UiLCJST0xFX1ZJTUJPWF9URUFDSEVSX1VTQUdFIiwiUk9MRV9WSU1CT1hfQ1JFQVRFX1NDUkVFTklOR19URVNUIl19.VBxCikP_zmefdHwpgdzR9NlD3KEENsIHjJ7JmnGL_aLV9mUIhVtXKMIJ7Rz5_lSvAJCeQWpj9bT9-skoULcs8qQBdj5Q9w5gYHEqDK5aaJ5NbjuIsZ2xXJI3A8xCesFNooeh3olkbdH4xys9ei7TU9NNan6A2NHzY1AmFbinuDutLpHAUmTfJAX0wpYdNxSuCzJOFBgdz4cI9KyQ9E9ZLvaF0Le2LqYq_Zst2NwlK4HVqU7QFGgj70or96D4YXzS4FS013-8mAbP6q4KV4lhv9PdiPO3OXNnZFVFuQQED4QbJP2yBI4IzjSexq-Nq8Zc7s194zqYwJDa-FlZkfdMINN2xaX2CPlIPLyJpGUtmHbPj5AobWId0tVXUIC9TRXaB5CjUU3CcpE56x0el5LlkzfoSNmaXygx7I35GKe-lj-HrkJoE2s4nL4IN5RNL2TX3uSSCls8wNgJnt2Lp8qgtP-wdPMN7mO7B0hPg9Hr4fBOH2QEAST8it5xzgZsw6fbEX2-kfJEVZ7q408JmLS6xTpHNfdoLoCgCg8Y-QO7ZP4BjbTymQURxJHaLOEEeYUEBNfLgUjLaswi_Xl-emihorBVNh3I40hSKE43hYRRlkjZXhxoVQaWZEbCifnR2EoB7s3EFfig5-Lc6egWOr026qisYpBvWyOyTSkh5Ala8BM; global_id=YWVzLTEyOC1jYmM%3D.eI8c7LdBs30FzNUHvA3Vzw%3D%3D.5ESZBDh4mAFZxSNp8K8PFKQlrWe%2BYDsOCmNpRciChJc%3D; session_global=fh0m83ficeipdhm5gofjehn1tb; _ym_d=1666092609; _ym_isad=2; _ym_uid=1666092609272830926",
+			"type": "string"
+		},
+		{
+			"key": "EventId",
+			"value": ""
+		},
+		{
+			"key": "LastStartAt",
+			"value": ""
+		},
+		{
+			"key": "BaseUrl",
+			"value": "https://api-teachers.skyeng.ru",
+			"type": "string"
+		}
+	]
+}
