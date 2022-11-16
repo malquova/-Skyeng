@@ -20,7 +20,7 @@
 <li>Smoke-тестирование (ручное и API)</li>
 <li>Тестирование API</li>
 <li>Функциональное (на уровне системы, на уровне интеграции, на уровне компонентов)</li>
-<li>Проверка совместимости</li>
+<li>Регрессионное тестирование</li>
 </OL> 
 
 
@@ -42,4 +42,19 @@ https://www.postman.com/security-cosmonaut-14770752/workspace/personal-ivents
 <img width="996" alt="Снимок экрана 2022-11-16 в 18 56 50" src="https://user-images.githubusercontent.com/106274596/202230262-bb352f4f-3113-44b6-baa2-f9ad25a87db2.png">
 <img width="1001" alt="Снимок экрана 2022-11-16 в 18 56 59" src="https://user-images.githubusercontent.com/106274596/202230279-f693c712-86d6-481f-bc8e-eb637fefef12.png">
 <img width="998" alt="Снимок экрана 2022-11-16 в 18 57 09" src="https://user-images.githubusercontent.com/106274596/202230296-126560ba-156e-4699-a65b-d24dc37c17a8.png">
+
+<b>Регрессионное тестирование:</b>
+
+<h3> 4. Результаты тестирования: </h3>
+
+Отчет по Smoke-test: https://app.qase.io/public/report/8754e4c7d9fbd085e5f42d729b1539c867c42c0f
+
+Тестирование по чек-листу:
+
+![b36384d2-ca7f-452a-9361-b0f3ae2cac89](https://user-images.githubusercontent.com/106274596/202241446-326a18d6-4e90-4465-8799-1f84d40824f1.png)
+
+Баг-репорт в Jira: 
+<img width="1143" alt="Снимок экрана 2022-11-16 в 19 48 30" src="https://user-images.githubusercontent.com/106274596/202242414-c9341b72-344e-4c7e-ae5a-f84136a3b846.png">
+
+
 
