@@ -16,13 +16,17 @@
 
 Будут проведены следующие виды тестирования:
 
-1)Smoke-тестирование
-2)Функциональное (на уровне системы, на уровне интеграции, на уровне компонентов)
-3)Проверка совместимости
-4)Тестирование API
+1)Smoke-тестирование (ручное и API)
+2)Тестирование API
+3)Функциональное (на уровне системы, на уровне интеграции, на уровне компонентов)
+4)Проверка совместимости
 
 
 <h3> 3. Тестирование </h3>
+
+<b>Тестирование API в Postman: </b>
+
+https://www.postman.com/security-cosmonaut-14770752/workspace/personal-ivents
 
 <b>Smoke-тест в Qase.io:</b>
 
@@ -36,8 +40,4 @@
 <img width="996" alt="Снимок экрана 2022-11-16 в 18 56 50" src="https://user-images.githubusercontent.com/106274596/202230262-bb352f4f-3113-44b6-baa2-f9ad25a87db2.png">
 <img width="1001" alt="Снимок экрана 2022-11-16 в 18 56 59" src="https://user-images.githubusercontent.com/106274596/202230279-f693c712-86d6-481f-bc8e-eb637fefef12.png">
 <img width="998" alt="Снимок экрана 2022-11-16 в 18 57 09" src="https://user-images.githubusercontent.com/106274596/202230296-126560ba-156e-4699-a65b-d24dc37c17a8.png">
-
-<b>Тестирование API в Postman: </b>
-
-https://www.postman.com/security-cosmonaut-14770752/workspace/personal-ivents
 
