@@ -30,7 +30,7 @@
 
 https://www.postman.com/security-cosmonaut-14770752/workspace/personal-ivents
 
-<b>Smoke-тест в Qase.io:</b>
+<b>Smoke-тест в Qase.io (ручное тестирование):</b>
 
 <img width="1277" alt="Снимок экрана 2022-11-16 в 18 46 13" src="https://user-images.githubusercontent.com/106274596/202227260-8b381baf-d263-4bc3-a5bf-ec00b35bee59.png">
 <img width="1276" alt="Снимок экрана 2022-11-16 в 18 46 37" src="https://user-images.githubusercontent.com/106274596/202227309-d3647752-1d65-4c83-a9b6-ebb56dd02d47.png">
